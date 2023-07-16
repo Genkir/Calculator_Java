@@ -2,21 +2,22 @@ import java.util.Scanner;
 import static  java.lang.System.*;
 
 public class Program {
-
-
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         ArrayMath calc = new ArrayMath();
         int result;
-        boolean t = true;
+        boolean repeat = true;
         Scanner in = new Scanner(System.in);
-        while (t) {
-            String a = in.nextLine();
-            if (LineChecking.LineChecks(a)) {
-                out.println("Incorrect input");
-                t=false;
-            } else {
-                result = calc.Calculator(a);
+        while (repeat) {
+            try {
+                String line = in.nextLine();
+                LineChecking.LineChecks(line);
+                result = calc.Calculator(line);
                 out.println(result);
+            } catch (MissInputException ex) {
+                out.print(ex.getMessage());
+                out.print(ex.getNumber());
+                out.println(" position");
+                repeat = false;
             }
         }
     }

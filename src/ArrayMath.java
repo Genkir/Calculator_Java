@@ -6,14 +6,14 @@ public class ArrayMath {
         int[] digit;
         char[] sign;
 
-        line=line.trim();
+        line = line.trim();
         digit = ArrayOfDigits(line);
         sign = ArrayOfSign(line);
 
         if (sign[1] == 0) { // операции с двумя переменными
             switch (sign[0]) {
                 case '+':
-                    return  digit[0] + digit[1];
+                    return digit[0] + digit[1];
                 case '-':
                     return digit[0] - digit[1];
                 case '*':
@@ -21,13 +21,12 @@ public class ArrayMath {
                 case '/':
                     return digit[0] / digit[1];
             }
-        }
-        else { // операции с тремя переменными
+        } else { // операции с тремя переменными
             switch (sign[1]) {
-                case  '+':
+                case '+':
                     switch (sign[0]) {
                         case '+':
-                            return  digit[0] + digit[1] + digit[2];
+                            return digit[0] + digit[1] + digit[2];
                         case '-':
                             return digit[0] - digit[1] + digit[2];
                         case '*':
@@ -38,7 +37,7 @@ public class ArrayMath {
                 case '-':
                     switch (sign[0]) {
                         case '+':
-                            return  digit[0] + digit[1] - digit[2];
+                            return digit[0] + digit[1] - digit[2];
                         case '-':
                             return digit[0] - digit[1] - digit[2];
                         case '*':
