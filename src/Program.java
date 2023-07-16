@@ -13,6 +13,9 @@ public class Program {
                 LineChecking.LineChecks(line);
                 result = calc.Calculator(line);
                 out.println(result);
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                out.println("too many variables or signs");
+                repeat = false;
             } catch (MissInputException ex) {
                 out.print(ex.getMessage());
                 out.print(ex.getNumber());
